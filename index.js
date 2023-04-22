@@ -1,5 +1,4 @@
-let playerSelection = 'rock';
-let computerSelection = getComputerChoice()
+
 
 function getComputerChoice(){
     let items = ['rock', 'paper', 'scissors'];
@@ -8,24 +7,60 @@ function getComputerChoice(){
     return choice;
 }
 
-console.log(getComputerChoice())
+
 
 function playRound (playerSelection, computerSelection){
+     playerSelection = playerChoice();
+     computerSelection = getComputerChoice();
 if (playerSelection === computerSelection) {
-    console.log('Its a tie')
+    return 'Its a tie'
 }
 else if (playerSelection === 'rock' && computerSelection ==='paper'){
-    console.log('Computer wins this round')
+    computerScore++;
+    return 'Computer wins this round'
 }
 else if(playerSelection === 'paper' && computerSelection === 'scissors'){
-    console.log('computer wins this round')
+    computerScore++;
+    return 'Computer wins this round'
 }
 else if(playerSelection === 'scissors' && computerSelection === 'rock'){
-    console.log('computer wins this round')
+    computerScore++;
+    return 'Computer wins this round'
 }
 else {
-    console.log('Player wins this round')
+   playerScore++;
+   return 'Player wins this round'
 }
 }
 
-playRound(playerSelection, computerSelection)
+function playerChoice() {
+    let selection = prompt('Select your choice');
+    return selection
+}
+
+
+let computerScore = 0;
+let playerScore = 0;
+
+function game(){
+    
+    console.log(playRound(playerChoice(), getComputerChoice()))
+    console.log(playRound(playerChoice(), getComputerChoice()))
+    console.log(playRound(playerChoice(), getComputerChoice()))
+    console.log(playRound(playerChoice(), getComputerChoice()))
+    console.log(playRound(playerChoice(), getComputerChoice()))
+    console.log(declareWinner())
+}
+
+function declareWinner(){
+    if (computerScore > playerScore){
+        return 'COMPUTER WINS THE GAME'
+    }
+    else if(playerScore > computerScore){
+        return 'PlAYER WINS THE GAME'
+    }
+    else return 'THE GAME IS A TIE'
+}
+
+
+console.log(game())
