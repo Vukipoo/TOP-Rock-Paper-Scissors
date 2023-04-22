@@ -1,5 +1,5 @@
-let userChoice = '';
-
+let playerSelection = 'rock';
+let computerSelection = getComputerChoice()
 
 function getComputerChoice(){
     let items = ['rock', 'paper', 'scissors'];
@@ -10,16 +10,22 @@ function getComputerChoice(){
 
 console.log(getComputerChoice())
 
-
-/* if (userChoice === 'rock' && computerChoice ==='paper'){
+function playRound (playerSelection, computerSelection){
+if (playerSelection === computerSelection) {
+    console.log('Its a tie')
+}
+else if (playerSelection === 'rock' && computerSelection ==='paper'){
     console.log('Computer wins this round')
 }
-else if(userChoice === 'paper' && computerChoice === 'scissors'){
+else if(playerSelection === 'paper' && computerSelection === 'scissors'){
     console.log('computer wins this round')
 }
-else if(userChoice === 'scissors' && computerChoice === 'rock'){
+else if(playerSelection === 'scissors' && computerSelection === 'rock'){
     console.log('computer wins this round')
 }
 else {
     console.log('Player wins this round')
-} */
+}
+}
+
+playRound(playerSelection, computerSelection)
